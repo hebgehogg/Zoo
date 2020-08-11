@@ -1,4 +1,6 @@
-﻿using Data.Animals.Base;
+﻿using System;
+using Data.Animals.Base;
+using Data.FoodKinds.PredatorsFood;
 
 namespace Data.Animals.Predators
 {
@@ -9,9 +11,11 @@ namespace Data.Animals.Predators
             Name = "Lion";
         }
 
-        public override void Eat(object food)
+        public void Eat(LionFood food)
         {
-            throw new System.NotImplementedException();
+            if (food == null) throw new ArgumentNullException(nameof(food));
+            
+            EatInternal(food);
         }
     }
 }

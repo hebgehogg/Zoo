@@ -1,4 +1,6 @@
-﻿using Data.Animals.Base;
+﻿using System;
+using Data.Animals.Base;
+using Data.FoodKinds.HerbivoresFood;
 
 namespace Data.Animals.Herbivores
 {
@@ -8,9 +10,11 @@ namespace Data.Animals.Herbivores
         {
             Name = "Ram";
         }
-        public override void Eat(object food)
+        public void Eat(RamFood food)
         {
-            throw new System.NotImplementedException();
+            if (food == null) throw new ArgumentNullException(nameof(food));
+            
+            EatInternal(food);
         }
     }
 }

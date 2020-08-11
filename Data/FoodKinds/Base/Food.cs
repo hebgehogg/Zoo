@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data.FoodKinds
+namespace Data.FoodKinds.Base
 {
     public abstract class Food: IDisposable
     {
