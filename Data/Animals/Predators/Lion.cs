@@ -2,23 +2,23 @@
 using Data.Animals.Base;
 using Data.FoodKinds.Base;
 using Data.FoodKinds.PredatorsFood;
-using log4net;
+using NLog;
 
 namespace Data.Animals.Predators
 {
     public sealed class Lion : Predator
     {
-        private static readonly ILog _log = LogManager.GetLogger(typeof(Lion));
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         
         public Lion()
         {
             Name = "Lion";
-            TimerInterval=34000;
+            TimerInterval=8000;
         }
 
         public override void Eat(Food food)
         {
-            _log.Info("The lion ate");
+            Logger.Info("The lion ate");
             if(!(food is LionFood))
                 throw new ArgumentException();
             EatInternal(food);

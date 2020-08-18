@@ -1,21 +1,26 @@
 ﻿using System;
 using System.Drawing;
+using System.Reflection;
 using System.Timers;
 using Data.FoodKinds.Base;
-using log4net;
+using NLog;
 
 namespace Data.Animals.Base
 {
     public abstract class Animal
     {
         
-        private Timer  _timer = new Timer();
+        private Timer  _eatTimer = new Timer();
+        
+        private Timer  _deadTimer = new Timer();
         
         private double _timerInterval;
-
-        private static readonly ILog _log = LogManager.GetLogger(typeof(Animal));
         
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         public event EventHandler WantEatEvent;
+        
+        public event EventHandler DeadEvent;
 
         public Point[] View { get; protected set; }
         
@@ -27,21 +32,35 @@ namespace Data.Animals.Base
             protected set
             {
                 _timerInterval = value;
-                _timer.Interval = _timerInterval;
-                _timer.Start();
+                _eatTimer.Interval = _timerInterval;
+                _eatTimer.Start();
             }
         }
 
         protected Animal()
         {
-            _log.Info("The animal start behave");
-            _timer.Elapsed+= TimerOnElapsed;
+            var rnd = new Random();
+            _deadTimer.Interval= rnd.Next(30000, 60000);
+            _deadTimer.Elapsed += DeadTimerOnElapsed;
+            
+            Logger.Info("The animal start behave");
+            _eatTimer.Elapsed += EatTimerOnElapsed;
         }
 
-        private void TimerOnElapsed(object sender, ElapsedEventArgs e)
+        private void EatTimerOnElapsed(object sender, ElapsedEventArgs e)
         {
-            _log.Info("The "+Name+" wants to eat");
+            Logger.Info("The "+Name+" wants to eat");
             OnWantEatEvent();
+        }
+        
+        private void DeadTimerOnElapsed(object sender, ElapsedEventArgs e)
+        {
+            OnDeadEvent();
+        }
+        
+        protected virtual void OnDeadEvent()
+        {
+            DeadEvent?.Invoke(this, EventArgs.Empty);
         }
 
         public abstract void Eat(Food food);

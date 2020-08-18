@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Data.SqlTypes;
+using System.Linq;
 using Data.Animals.Base;
 using Data.Animals.Herbivores;
 using Data.Animals.Predators;
 using Data.Humans;
 using Data.Humans.Employees;
 using Data.Services;
-using log4net;
-using log4net.Config;
-using log4net.Repository.Hierarchy;
+using NLog;
 
 namespace Zoo
 {
@@ -15,7 +15,10 @@ namespace Zoo
     {
         private static Zoo _getInstance;
         
-        private static readonly ILog _log = LogManager.GetLogger(typeof(Zoo));
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
+        public IEnumerable<Animal> AllAnimal => Predators.Cast<Animal>().Concat(Herbivores);
+
         public List<Predator> Predators { get; }
 
         public List<Herbivore> Herbivores { get; }
@@ -37,8 +40,7 @@ namespace Zoo
 
         private Zoo()
         {
-            BasicConfigurator.Configure(new Hierarchy());
-            _log.Info("Our zoo is open!");
+            Logger.Info("Our zoo is open!");
             
             Predators = new List<Predator>();
             Predators.Add(new Lion());
