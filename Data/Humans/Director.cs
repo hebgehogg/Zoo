@@ -4,6 +4,7 @@ using Data.Humans.Employees;
 using NLog;
 using System.Timers;
 using System;
+using Data.Humans.Employees.Exeptions;
 
 namespace Data.Humans
 {
@@ -13,34 +14,45 @@ namespace Data.Humans
 
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
-        public Employee<Animal>[] HerbivoresEmployees { get; }
+        public HerbivoresEmployee[] HerbivoresEmployees { get; }
 
-        public Employee<Animal>[] PredatorsEmployees { get; }
+        public PredatorEmployee[] PredatorsEmployees { get; }
 
         public Director(PredatorEmployee[] predatorEmployee, HerbivoresEmployee[] herbivoresEmployee)
         {
-            if (predatorEmployee == null)
-                throw new ArgumentNullException(nameof(predatorEmployee));
-            if (herbivoresEmployee == null)
-                throw new ArgumentNullException(nameof(herbivoresEmployee));
-
+            HerbivoresEmployees = herbivoresEmployee ?? throw new ArgumentNullException(nameof(herbivoresEmployee));
+            PredatorsEmployees = predatorEmployee ?? throw new ArgumentNullException(nameof(predatorEmployee));
+            
             Name = "Director";
             _salaryTimer.Interval = 10000;
             _salaryTimer.Elapsed += SalaryTimerOnElapsed;
-
-            HerbivoresEmployees = herbivoresEmployees;
-
-            PredatorsEmployees = predatorEmployee;
 
             _salaryTimer.Start();
         }
 
         private void SalaryTimerOnElapsed(object sender, ElapsedEventArgs e)
         {
-            foreach(var employee in Employees)
+            try
             {
-                Logger.Info($"Salary paid to {employee.Name}");
-                employee.TakeMoney(employee.Salary);
+                foreach(var employee in HerbivoresEmployees)
+                {
+                    Logger.Info($"Salary paid to {employee.Name}");
+                    employee.TakeMoney(employee.Salary);
+                }
+                foreach(var employee in PredatorsEmployees)
+                {
+                    Logger.Info($"Salary paid to {employee.Name}");
+                    employee.TakeMoney(employee.Salary);
+                }
+            }
+            catch (InvalidSalaryException exception)
+            {
+                Logger.Error(exception);
+            }
+            catch (Exception exception)
+            {
+                Logger.Fatal(exception);
+                throw;
             }
         }
     }

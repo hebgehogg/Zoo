@@ -66,13 +66,12 @@ namespace Zoo
             var predatorEmployee = new PredatorEmployee(readOnlyCollectionPredators, FoodFactory);
 
 
-
             foreach (var animal in AllAnimals)
                 animal.DeadEvent += Animal_DeadEvent;
 
             AnimalFactory = AnimalFactory.Instance;
 
-            Director = new Director(Employees.Cast<Employee<Animal>>());
+            Director = new Director(new []{predatorEmployee}, new []{herbivoreEmployee});
         }
 
         private void Animal_DeadEvent(object sender, System.EventArgs e)

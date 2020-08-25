@@ -21,12 +21,8 @@ namespace Data.Humans.Employees
 
         public Employee(ReadOnlyObservableCollection<T> animals, FoodFactory foodFactory) 
         {
-            if (animals == null) throw new ArgumentNullException(nameof(animals));
-            if (foodFactory == null) throw new ArgumentNullException(nameof(foodFactory));
-            
-            FoodFactory = foodFactory;
-
-            Animals = animals;
+            FoodFactory = foodFactory ?? throw new ArgumentNullException(nameof(foodFactory));
+            Animals = animals ?? throw new ArgumentNullException(nameof(animals));
 
             foreach (var animal in animals)
                 animal.WantEatEvent+=AnimalOnWantEatEvent;
@@ -59,8 +55,8 @@ namespace Data.Humans.Employees
 
         public void TakeMoney(double money)
         {
-            if (Salary == money)
-                throw new InvalidSalaryException();
+            if (Salary != money)
+                throw new InvalidSalaryException("Wrong salary amount");
         }
     }
 }
