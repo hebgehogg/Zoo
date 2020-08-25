@@ -19,7 +19,7 @@ namespace Data.Services
 
         private AnimalFactory()
         {
-            GetAnimal<Animal>();
+            
         }
         
         public T GetAnimal<T>() where T:Animal

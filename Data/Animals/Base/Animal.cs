@@ -9,10 +9,9 @@ namespace Data.Animals.Base
 {
     public abstract class Animal
     {
+        private readonly Timer  _eatTimer = new Timer();
         
-        private Timer  _eatTimer = new Timer();
-        
-        private Timer  _deadTimer = new Timer();
+        private readonly Timer _deadTimer = new Timer();
         
         private double _timerInterval;
         
@@ -55,6 +54,7 @@ namespace Data.Animals.Base
         
         private void DeadTimerOnElapsed(object sender, ElapsedEventArgs e)
         {
+            Logger.Info("The " + Name + " died");
             OnDeadEvent();
         }
         
