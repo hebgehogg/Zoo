@@ -9,7 +9,7 @@
 > Темы:  
 [1. MVVM](#MVVM)  
 [2. Именование файлов и членов типа](#name)  
-[3. Бизнес-логика в сервисах](#business)
+[3. Бизнес-логика в сервисах](#business)  
 [4. xaml](#xaml)  
 [5. Binding](#binding)  
 [6. Templates](#template)  
