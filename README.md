@@ -14,7 +14,7 @@
 [5. Binding](#binding)  
 [6. Templates](#template)  
 [7. Commands](#command)  
-[8. Converters](#converter) 
+[8. Converters](#converter)  
 [9. Dependency properties](#dependencyproperties)  
 [10. BinaryFormatter](#binaryformatter)  
 [11. xaml triggers](#trigger)  
