@@ -6,17 +6,43 @@ This project show base opportunities of C# on example virtual zoo.
 - hebgehogg@gmail.com
 - phone: +7(950) 446-12-02
 
-# Содержание 
-[MVVM](#MVVM)  
-[xaml](#xaml)  
-[Binding](#binding)  
-[Template's](#template)  
-[Commands](#command)  
-[Именование файлов и членов типа](#name)  
-[Бизнес-логика в сервисах](#business)  
-[Converters](#converters)  
-[Dependency properties](#dependencyproperties)  
-[BinaryFormatter](#binaryFormatter)  
-[xaml triggers](#trigger)  
-[User control](#control)  
-[Generic](#generic)  
+## Содержание 
+[1. MVVM](#MVVM)  
+[2. Именование файлов и членов типа](#name)  
+[3. Бизнес-логика в сервисах](#business)
+[4. xaml](#xaml)  
+[5. Binding](#binding)  
+[6. Templates](#template)  
+[7. Commands](#command)  
+[8. Converters](#converter) 
+[9. Dependency properties](#dependencyproperties)  
+[10. BinaryFormatter](#binaryformatter)  
+[11. xaml triggers](#trigger)  
+[12. User control](#control)  
+[13. Generic](#generic)  
+
+<a name="MVVM"><h1>1. MVVM</h1></a>
+
+<a name="name"><h1>2. Именование файлов и членов типа</h1></a>
+
+<a name="business"><h1>3. Бизнес-логика в сервисах</h1></a>
+
+<a name="xaml"><h1>4. xaml</h1></a>
+
+<a name="binding"><h1>5. Binding</h1></a>
+
+<a name="template"><h1>6. Templates</h1></a>
+
+<a name="command"><h1>7. Commands</h1></a>
+
+<a name="converter"><h1>8. Converters</h1></a>
+
+<a name="dependencyproperties"><h1>9. Dependency properties</h1></a>
+
+<a name="binaryformatter"><h1>10. BinaryFormatter</h1></a>
+
+<a name="trigger"><h1>11. xaml triggers</h1></a>
+
+<a name="control"><h1>12. User control</h1></a>
+
+<a name="generic"><h1>13. Generic</h1></a>
