@@ -1,12 +1,12 @@
-# Zoo
-This project show base opportunities of C# on example virtual zoo.
-
-
-- Ovchinikova Alina 
+## Контакты
+- Овчинникова Алина Владимировна
 - hebgehogg@gmail.com
 - phone: +7(950) 446-12-02
 
+# Отчет об обучении в компании Аэросфера с 06.08.2020 по 27.11.2020
+
 ## Содержание 
+> Темы:  
 [1. MVVM](#MVVM)  
 [2. Именование файлов и членов типа](#name)  
 [3. Бизнес-логика в сервисах](#business)
@@ -20,6 +20,7 @@ This project show base opportunities of C# on example virtual zoo.
 [11. xaml triggers](#trigger)  
 [12. User control](#control)  
 [13. Generic](#generic)  
+[14. Реализация](#realization)
 
 <a name="MVVM"><h1>1. MVVM</h1></a>
 
@@ -46,3 +47,8 @@ This project show base opportunities of C# on example virtual zoo.
 <a name="control"><h1>12. User control</h1></a>
 
 <a name="generic"><h1>13. Generic</h1></a>
+
+<a name="realization"><h1>14. Реализация</h1></a>  
+В ходе обучкения были созданны 2 программы: 
+1. [Zoo - этот проект демонстрирует базовые возможности C# на примере виртуального зоопарка)](https://github.com/hebgehogg/Zoo)  
+2. [Messages - клиент-серверное приложение)](https://github.com/hebgehogg/Messages)  
