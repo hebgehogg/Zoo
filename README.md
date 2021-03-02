@@ -51,9 +51,9 @@
 <a name="realization"><h1>14. Реализация</h1></a>  
 В ходе обучения были созданы 2 программы:
 ### 1. Zoo - этот проект демонстрирует базовые возможности C# на примере виртуального зоопарка
-[Ссылка - Zoo](https://github.com/hebgehogg/Zoo)  
+[Ссылка на код программы - Zoo](https://github.com/hebgehogg/Zoo)  
 ![Строение программы Zoo](https://github.com/hebgehogg/Zoo/blob/master/Photos/zoo-app.png)
 ### 2. Messages - клиент-серверное приложение
-[Ссылка - Messages](https://github.com/hebgehogg/Messages)  
+[Ссылка на код программы - Messages](https://github.com/hebgehogg/Messages)  
 ![Строение программы Messages](https://github.com/hebgehogg/Zoo/blob/master/Photos/client-server-test-app.png)
 
